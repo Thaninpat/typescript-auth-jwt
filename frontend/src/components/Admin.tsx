@@ -16,7 +16,7 @@ const Admin: React.FC<{ admin: User | null }> = ({ admin }) => {
   return loading ? (
     <Loader type='Oval' color='teal' height={50} width={50} timeout={30000} />
   ) : error ? (
-    <p>Sorry, something went wrong : Admin.tsx</p>
+    <p>Sorry, something went wrong : Admin</p>
   ) : (
     <Div>
       <h3>Permission Management</h3>
