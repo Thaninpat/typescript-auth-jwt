@@ -292,10 +292,13 @@ export class AuthResolvers {
       if (!user) throw new Error('User not found.');
 
       // Update roles
-      user.roles = newRoles;
-
+      if (!newRoles.includes(RoleOptions.client)) {
+        user.roles = [...newRoles, RoleOptions.client];
+      } else {
+        user.roles = newRoles;
+      }
+      // user.roles = newRoles;
       await user.save();
-
       return user;
     } catch (error) {
       throw error;
@@ -321,7 +324,7 @@ export class AuthResolvers {
 
       if (!user) throw new Error('Sorry, cannot proceed.');
 
-      return { message: `User id: ${userId} has been deleted.` };
+      return { message: `${user.username} has been deleted.` };
     } catch (error) {
       throw error;
     }

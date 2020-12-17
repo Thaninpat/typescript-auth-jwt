@@ -47,3 +47,23 @@ export const RESET_PASSWORD = gql`
     }
   }
 `;
+
+export const UPDATE_ROLES = gql`
+  mutation UPDATE_ROLES($userId: String!, $newRoles: [String!]!) {
+    updateRoles(userId: $userId, newRoles: $newRoles) {
+      id
+      email
+      username
+      roles
+      createdAt
+    }
+  }
+`;
+
+export const DELETE_USER = gql`
+  mutation DELETE_USERS($userId: String!) {
+    deleteUser(userId: $userId) {
+      message
+    }
+  }
+`;
