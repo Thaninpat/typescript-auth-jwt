@@ -1,38 +1,38 @@
-import { getModelForClass, prop } from '@typegoose/typegoose'
-import { ObjectType, Field, ID } from 'type-graphql'
+import { getModelForClass, prop } from '@typegoose/typegoose';
+import { ObjectType, Field, ID } from 'type-graphql';
 
-import { RoleOptions } from '../types'
+import { RoleOptions } from '../types';
 
 @ObjectType({ description: 'User Model' })
 export class User {
   @Field(() => ID)
-  id: string
+  id: string;
 
   @Field()
   @prop({ required: true, trim: true })
-  username: string
+  username: string;
 
   @Field()
   @prop({ required: true, trim: true, unique: true, lowercase: true })
-  email: string
+  email: string;
 
   @prop({ required: true })
-  password: string
+  password: string;
 
   @prop({ default: 0 })
-  tokenVersion: number
+  tokenVersion: number;
 
   @prop()
-  resetPasswordToken?: string
+  resetPasswordToken?: string;
 
   @prop()
-  resetPasswordTokenExpiry?: number
+  resetPasswordTokenExpiry?: number;
 
-  @prop()
-  facebookId?: string
+  // @prop()
+  // facebookId?: string
 
-  @prop()
-  googleId?: string
+  // @prop()
+  // googleId?: string
 
   @Field(() => [String])
   @prop({
@@ -40,11 +40,11 @@ export class User {
     enum: RoleOptions,
     default: [RoleOptions.client],
   })
-  roles: RoleOptions[]
+  roles: RoleOptions[];
 
   @Field()
   @prop({ default: () => Date.now() + 60 * 60 * 1000 * 7 })
-  createdAt: Date
+  createdAt: Date;
 }
 
-export const UserModel = getModelForClass(User)
+export const UserModel = getModelForClass(User);
