@@ -76,11 +76,11 @@ export class AuthResolvers {
       if (!email) throw new Error('Email is required.');
       if (!password) throw new Error('Password is required.');
 
-      // Check if email exist in the database
-      const user = await UserModel.findOne({ email });
+      // Check if username exist in the database
+      const user = await UserModel.findOne({ username });
 
       if (user)
-        throw new Error('Email already in use, please sign in instead.');
+        throw new Error('Username already in use, please sign in instead.');
 
       // Validate username
       const isUsernameValid = validateUsername(username);
@@ -125,16 +125,16 @@ export class AuthResolvers {
 
   @Mutation(() => User, { nullable: true })
   async signin(
-    @Arg('email') email: string,
+    @Arg('username') username: string,
     @Arg('password') password: string,
     @Ctx() { res }: AppContext
   ): Promise<User | null> {
     try {
-      if (!email) throw new Error('Email is required.');
+      if (!username) throw new Error('Email is required.');
       if (!password) throw new Error('Password is required.');
 
-      // Check if email exist in the database
-      const user = await UserModel.findOne({ email });
+      // Check if username exist in the database
+      const user = await UserModel.findOne({ username });
 
       if (!user) throw new Error('Email not found.');
 
