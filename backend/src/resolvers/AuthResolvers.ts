@@ -130,19 +130,19 @@ export class AuthResolvers {
     @Ctx() { res }: AppContext
   ): Promise<User | null> {
     try {
-      if (!username) throw new Error('Email is required.');
+      if (!username) throw new Error('Username is required.');
       if (!password) throw new Error('Password is required.');
 
       // Check if username exist in the database
       const user = await UserModel.findOne({ username });
 
-      if (!user) throw new Error('Email not found.');
+      if (!user) throw new Error('Username not found.');
 
       // Check if the password is valid
 
       const isPasswordValid = await bcrypt.compare(password, user.password);
 
-      if (!isPasswordValid) throw new Error('Email or password is invalid');
+      if (!isPasswordValid) throw new Error('Username or password is invalid');
 
       // Create token
       const token = createToken(user.id, user.tokenVersion);
