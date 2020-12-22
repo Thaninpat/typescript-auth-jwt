@@ -72,7 +72,7 @@ const SignUp: React.FC<Props> = () => {
           <h2>Sign Up</h2>
         </Header>
 
-        <StyledSocial>
+        {/* <StyledSocial>
           <button className='facebook'>
             <FontAwesomeIcon icon={['fab', 'facebook-f']} size='lg' />
             <a>Sign in with Facebook</a>
@@ -81,12 +81,12 @@ const SignUp: React.FC<Props> = () => {
             <FontAwesomeIcon icon={['fab', 'google']} />
             <a>Sign in with Google</a>
           </button>
-        </StyledSocial>
+        </StyledSocial> */}
 
         <Divider />
 
         <StyledForm onSubmit={submitSignup}>
-          <p className='email_section_label'>or sign up with an email</p>
+          {/* <p className='email_section_label'>or sign up with an email</p> */}
           <InputContainer>
             <label>Username</label>
             <Input
