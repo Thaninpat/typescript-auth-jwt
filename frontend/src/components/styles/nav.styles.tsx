@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Header = styled.header`
   width: 100%;
-  height: 10rem;
+  height: 6rem;
   background: ${(props) => props.theme.backgroundColors.main};
   display: flex;
   justify-content: center;
@@ -72,15 +72,18 @@ export const Ul = styled.ul`
 export const Actions = styled.div`
   width: 18%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
+  button {
+    margin: 0.5rem;
+  }
 
   @media ${(props) => props.theme.size.lg} {
     width: 20%;
   }
 
   @media ${(props) => props.theme.size.md} {
-    width: 25%;
+    width: 31%;
   }
 
   @media ${(props) => props.theme.size.sm} {

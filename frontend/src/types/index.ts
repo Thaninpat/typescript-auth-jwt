@@ -13,4 +13,4 @@ export type SignupArgs = Pick<User, 'username' | 'email'> & {
 };
 
 // Omit ไมเอา
-export type SigninArgs = Omit<SignupArgs, 'username'>;
+export type SigninArgs = Omit<SignupArgs, 'email'>;

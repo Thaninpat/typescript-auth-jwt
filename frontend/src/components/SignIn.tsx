@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useRouter } from 'next/router';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useMutation } from '@apollo/client';
 
 import Modal from './modal/Modal';
@@ -15,7 +15,7 @@ import {
   Button,
   StyledSwitchAction,
   Divider,
-  StyledSocial,
+  // StyledSocial,
   StyledError,
 } from './styles/styles';
 import { SigninArgs, User } from '../types';
@@ -37,10 +37,10 @@ const SignIn: React.FC<Props> = () => {
     SigninArgs
   >(SIGN_IN);
 
-  const handleSignin = handleSubmit(async ({ email, password }) => {
+  const handleSignin = handleSubmit(async ({ username, password }) => {
     try {
       const response = await signin({
-        variables: { email, password },
+        variables: { username, password },
       });
       if (response?.data?.signin) {
         const { signin } = response.data;
@@ -74,7 +74,7 @@ const SignIn: React.FC<Props> = () => {
           <h2>Sign In</h2>
         </Header>
 
-        <StyledSocial>
+        {/* <StyledSocial>
           <button className='facebook'>
             <FontAwesomeIcon icon={['fab', 'facebook-f']} size='lg' />
             <a>Sign in with Facebook</a>
@@ -83,27 +83,27 @@ const SignIn: React.FC<Props> = () => {
             <FontAwesomeIcon icon={['fab', 'google']} />
             <a>Sign in with Google</a>
           </button>
-        </StyledSocial>
+        </StyledSocial> */}
 
         <Divider />
 
         <StyledForm onSubmit={handleSignin}>
-          <p className='email_section_label'>or sign in with an email</p>
+          {/* <p className='email_section_label'>or sign in with an email</p> */}
           <InputContainer>
-            <label>Email</label>
+            <label>Username</label>
 
             <Input
               type='text'
-              name='email'
-              id='email'
-              placeholder='Your email'
+              name='username'
+              id='username'
+              placeholder='Your username'
               autoComplete='new-password'
               ref={register({
-                required: 'Email is required',
+                required: 'Username is required',
               })}
             />
             {/* ใช้เป็น error react-hook-form ได้แล้ว */}
-            <ErrorMessage errors={errors} name='email'>
+            <ErrorMessage errors={errors} name='username'>
               {({ message }) => <StyledError>{message}</StyledError>}
             </ErrorMessage>
           </InputContainer>
@@ -144,7 +144,7 @@ const SignIn: React.FC<Props> = () => {
           {error && (
             <StyledError>
               {error.graphQLErrors[0]?.message ||
-                'Sorry, something went wrong!!!'}
+                'Sorry, something went wrong!!! Signin'}
             </StyledError>
           )}
         </StyledForm>

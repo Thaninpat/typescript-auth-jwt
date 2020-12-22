@@ -76,11 +76,11 @@ export class AuthResolvers {
       if (!email) throw new Error('Email is required.');
       if (!password) throw new Error('Password is required.');
 
-      // Check if email exist in the database
-      const user = await UserModel.findOne({ email });
+      // Check if username exist in the database
+      const user = await UserModel.findOne({ username });
 
       if (user)
-        throw new Error('Email already in use, please sign in instead.');
+        throw new Error('Username already in use, please sign in instead.');
 
       // Validate username
       const isUsernameValid = validateUsername(username);
@@ -125,24 +125,24 @@ export class AuthResolvers {
 
   @Mutation(() => User, { nullable: true })
   async signin(
-    @Arg('email') email: string,
+    @Arg('username') username: string,
     @Arg('password') password: string,
     @Ctx() { res }: AppContext
   ): Promise<User | null> {
     try {
-      if (!email) throw new Error('Email is required.');
+      if (!username) throw new Error('Username is required.');
       if (!password) throw new Error('Password is required.');
 
-      // Check if email exist in the database
-      const user = await UserModel.findOne({ email });
+      // Check if username exist in the database
+      const user = await UserModel.findOne({ username });
 
-      if (!user) throw new Error('Email not found.');
+      if (!user) throw new Error('Username not found.');
 
       // Check if the password is valid
 
       const isPasswordValid = await bcrypt.compare(password, user.password);
 
-      if (!isPasswordValid) throw new Error('Email or password is invalid');
+      if (!isPasswordValid) throw new Error('Username or password is invalid');
 
       // Create token
       const token = createToken(user.id, user.tokenVersion);
