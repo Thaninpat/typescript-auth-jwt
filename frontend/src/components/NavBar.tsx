@@ -8,7 +8,6 @@ import { AuthContext } from '../context/AuthContextProvider';
 import { Actions, HamMenu, Header, Logo, Nav, Ul } from './styles/nav.styles';
 import { isAdmin } from '../helpers/authHelpers';
 import { SIGN_OUT } from '../apollo/mutations';
-// import '../images/logo.png';
 
 interface Props {}
 
@@ -47,12 +46,17 @@ const NavBar: React.FC<Props> = () => {
         <Link href='/'>
           <Logo>
             <a className={router.pathname === '/' ? 'active' : ''}>
-              <img src='./logo.png/' alt='logo' />
+              <img
+                src='https://scontent.fbkk5-1.fna.fbcdn.net/v/t1.0-9/65110669_2214908828623823_1941056713616523264_n.jpg?_nc_cat=109&ccb=2&_nc_sid=09cbfe&_nc_eui2=AeEvqmI2BMhmXZQb7ZHW6AkjNLOEqOJp3FI0s4So4mncUrUlynmCKTizuS5v0BnZL4b8Mvc_f29j_0TUInGdEnng&_nc_ohc=AgkuHkh8dkcAX87apXD&_nc_ht=scontent.fbkk5-1.fna&oh=3bff16aa8cdf3ef6da429d81b1785f38&oe=600979F2'
+                alt='logo'
+                width={60}
+                height={60}
+              />
             </a>
           </Logo>
         </Link>
         <Ul>
-          <Link href='/'>
+          {/* <Link href='/'>
             <a className={router.pathname === '/' ? 'active' : ''}>Home</a>
           </Link>
 
@@ -60,7 +64,7 @@ const NavBar: React.FC<Props> = () => {
             <a className={router.pathname === '/products' ? 'active' : ''}>
               Products
             </a>
-          </Link>
+          </Link> */}
 
           {loggedInUser && (
             <Link href='/dashboard'>
