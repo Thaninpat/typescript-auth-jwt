@@ -1,15 +1,7 @@
-import {
-  Resolver,
-  Query,
-  Mutation,
-  Arg,
-  Ctx,
-  ObjectType,
-  Field,
-} from 'type-graphql';
+import { Resolver, Mutation, Arg, Ctx } from 'type-graphql';
 import { JobIt, JobItModel } from '../entities/JobIt';
 import { User, UserModel } from '../entities/User';
-import { AppContext } from '../types';
+import { AppContext, AppJobIt } from '../types';
 
 @Resolver()
 export class JobRequestIt {
@@ -19,7 +11,7 @@ export class JobRequestIt {
     @Arg('comment') comment: string,
     @Arg('desiredDate') desiredDate: string,
     // @Arg('usernameId') usernameId: string,
-    @Ctx() { req, res }: AppContext
+    @Ctx() { req }: AppContext
   ): Promise<JobIt | User | null> {
     try {
       if (!typeJob) throw new Error('Type job is required.');
@@ -30,16 +22,12 @@ export class JobRequestIt {
       if (!user) return null;
 
       const newJob = await JobItModel.create<
-        Pick<
-          JobIt,
-          'typeJob' | 'comment' | 'desiredDate' | 'usernameId' | 'username'
-        >
+        Pick<JobIt, 'typeJob' | 'comment' | 'desiredDate' | 'usersId'>
       >({
         typeJob,
         comment,
         desiredDate,
-        usernameId: user.id,
-        username: user.username,
+        usersId: user.id,
       });
 
       await newJob.save();

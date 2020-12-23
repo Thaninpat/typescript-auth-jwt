@@ -8,15 +8,14 @@ The javascript `Date` as string. Type represents date and time as the ISO Date s
 """
 scalar DateTime
 
-"""Job IT Model"""
+"""Job IT Model 2"""
 type JobIt {
   id: ID!
   typeJob: String!
   comment: String!
   desiredDate: String!
   createdAt: DateTime!
-  usernameId: String!
-  username: String!
+  usersId: String!
 }
 
 type Mutation {

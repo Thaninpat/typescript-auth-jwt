@@ -32,7 +32,7 @@ export const StyledForm = styled.form`
   .email_section_label {
     margin: 0;
     padding: 0;
-    color: ${(props) => props.theme.colors.teal};
+    color: ${(props) => props.theme.colors.border};
   }
 `;
 
@@ -48,25 +48,30 @@ export const InputContainer = styled.div`
 export const Input = styled.input`
   width: 100%;
   height: 4rem;
-  border: 0.5px solid ${(props) => props.theme.colors.teal};
+  border: 0.5px solid #eaeaea;
   border-radius: ${(props) => props.theme.radius};
   margin: 0.2rem 0;
   padding: 1rem;
   font-size: 1.4rem;
   outline: none;
   box-shadow: 2px 2px 4px ${(props) => props.theme.colors.lightGrey};
+  &:focus {
+    border: 0.5px solid ${(props) => props.theme.colors.border};
+  }
 `;
 
 export const Button = styled.button`
   width: 100%;
   height: 4rem;
-  background: ${(props) => props.theme.backgroundColors.main};
+  background: ${(props) => props.theme.backgroundColors.buttonBg};
   color: white;
   font-size: 1.8rem;
   margin-top: 2rem;
 
   &:hover {
-    background: ${(props) => props.theme.colors.darkTeal};
+    background: #fff;
+    border: 0.5px solid ${(props) => props.theme.colors.border};
+    color: ${(props) => props.theme.fontColors.main};
   }
 `;
 
@@ -98,7 +103,7 @@ export const StyledInform = styled.div`
 
   p {
     font-size: 1.4rem;
-    color: ${(props) => props.theme.colors.teal};
+    color: ${(props) => props.theme.colors.border};
     padding: 0;
   }
 `;

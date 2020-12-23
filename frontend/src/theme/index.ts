@@ -1,4 +1,4 @@
-import { keyframes } from 'styled-components'
+import { keyframes } from 'styled-components';
 
 export const theme = {
   colors: {
@@ -10,14 +10,18 @@ export const theme = {
     fbDarkBlue: '#3b5998',
     googleRed: '#FF5252',
     googleDarkRed: '#D32F2F',
+    border: '#25292E',
   },
   fontColors: {
     primary: '#212121',
     secondary: '#757575',
-    hover: '#009688',
+    hover: '#000',
+    main: '#666',
   },
   backgroundColors: {
-    main: '#009688',
+    main: '#666',
+    buttonBg: '#25292E',
+    navBg: '#fff',
   },
   radius: '4px',
   size: {
@@ -27,8 +31,8 @@ export const theme = {
     xl: '(min-width: 1026px)',
   },
   width: '1000px',
-  transition: '0.35s',
-}
+  transition: '0.2s',
+};
 
 export const appear = keyframes`
   from {
@@ -38,4 +42,4 @@ export const appear = keyframes`
   to {
     opacity: 1;
   }
-`
+`;

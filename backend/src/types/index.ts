@@ -18,3 +18,8 @@ export interface AppContext {
   req: AppRequest;
   res: Response;
 }
+
+export interface AppJobIt {
+  id?: string;
+  username?: number;
+}
