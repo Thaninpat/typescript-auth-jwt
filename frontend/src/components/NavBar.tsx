@@ -56,7 +56,7 @@ const NavBar: React.FC<Props> = () => {
           </Logo>
         </Link>
         <Ul>
-          {/* <Link href='/'>
+          <Link href='/'>
             <a className={router.pathname === '/' ? 'active' : ''}>Home</a>
           </Link>
 
@@ -64,7 +64,7 @@ const NavBar: React.FC<Props> = () => {
             <a className={router.pathname === '/products' ? 'active' : ''}>
               Products
             </a>
-          </Link> */}
+          </Link>
 
           {loggedInUser && (
             <Link href='/dashboard'>
