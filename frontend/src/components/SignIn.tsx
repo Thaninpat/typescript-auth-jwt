@@ -74,7 +74,7 @@ const SignIn: React.FC<Props> = () => {
           <h2>Sign In</h2>
         </Header>
 
-        <StyledSocial>
+        {/* <StyledSocial>
           <button className='facebook'>
             <FontAwesomeIcon icon={['fab', 'facebook-f']} size='lg' />
             <a>Sign in with Facebook</a>
@@ -83,12 +83,12 @@ const SignIn: React.FC<Props> = () => {
             <FontAwesomeIcon icon={['fab', 'google']} />
             <a>Sign in with Google</a>
           </button>
-        </StyledSocial>
+        </StyledSocial> */}
 
         <Divider />
 
         <StyledForm onSubmit={handleSignin}>
-          <p className='email_section_label'>or sign in with an email</p>
+          {/* <p className='email_section_label'>or sign in with an email</p> */}
           <InputContainer>
             <label>Email</label>
 
@@ -102,6 +102,7 @@ const SignIn: React.FC<Props> = () => {
                 required: 'Email is required',
               })}
             />
+
             {/* ใช้เป็น error react-hook-form ได้แล้ว */}
             <ErrorMessage errors={errors} name='email'>
               {({ message }) => <StyledError>{message}</StyledError>}

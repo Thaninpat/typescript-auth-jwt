@@ -1,16 +1,18 @@
 import styled from 'styled-components';
+// import '../../theme/theme-color.css';
 
 export const Header = styled.header`
   width: 100%;
-  height: 10rem;
-  background: ${(props) => props.theme.backgroundColors.main};
+  height: 6rem;
+  background: ${(props) => props.theme.backgroundColors.navBg};
   display: flex;
   justify-content: center;
   align-items: center;
+  border-bottom: 0.2px solid #ebebeb;
 `;
 
 export const Nav = styled.nav`
-  width: 85%;
+  width: 50%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,8 +25,8 @@ export const Nav = styled.nav`
 export const Logo = styled.div`
   width: 20%;
   margin: 0 auto;
-  color: white;
-  font-size: 2rem;
+  color: #000;
+  font-size: 2.5rem;
   cursor: pointer;
 
   @media ${(props) => props.theme.size.lg} {
@@ -59,9 +61,9 @@ export const Ul = styled.ul`
   a {
     text-decoration: none;
     list-style: none;
-    color: white;
+    color: ${(props) => props.theme.fontColors.main};
     transition: all 0.35s linear;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
 
     &:hover {
       text-decoration: underline;
@@ -74,6 +76,15 @@ export const Actions = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  button {
+    background: ${(props) => props.theme.backgroundColors.buttonBg};
+    color: white;
+    &:hover {
+      background: #fff;
+      border: 0.5px solid ${(props) => props.theme.colors.border};
+      color: ${(props) => props.theme.fontColors.main};
+    }
+  }
 
   @media ${(props) => props.theme.size.lg} {
     width: 20%;

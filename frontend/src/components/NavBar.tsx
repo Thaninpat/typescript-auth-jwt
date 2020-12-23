@@ -5,12 +5,12 @@ import { useMutation } from '@apollo/client';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { AuthContext } from '../context/AuthContextProvider';
-
-interface Props {}
-
 import { Actions, HamMenu, Header, Logo, Nav, Ul } from './styles/nav.styles';
 import { isAdmin } from '../helpers/authHelpers';
 import { SIGN_OUT } from '../apollo/mutations';
+// import '../images/logo.png';
+
+interface Props {}
 
 const NavBar: React.FC<Props> = () => {
   const { handleAuthAction, loggedInUser, setAuthUser } = useContext(
@@ -46,7 +46,9 @@ const NavBar: React.FC<Props> = () => {
       <Nav>
         <Link href='/'>
           <Logo>
-            <a className={router.pathname === '/' ? 'active' : ''}>MyShop</a>
+            <a className={router.pathname === '/' ? 'active' : ''}>
+              <img src='./logo.png/' alt='logo' />
+            </a>
           </Logo>
         </Link>
         <Ul>
