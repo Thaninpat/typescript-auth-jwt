@@ -4,11 +4,8 @@ import styled from 'styled-components';
 export const Header = styled.header`
   width: 100%;
   height: 6rem;
-<<<<<<< HEAD
-  background: ${(props) => props.theme.backgroundColors.main};
-=======
+
   background: ${(props) => props.theme.backgroundColors.navBg};
->>>>>>> feature/frontend-styles
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,9 +78,6 @@ export const Actions = styled.div`
   justify-content: flex-end;
   align-items: center;
   button {
-<<<<<<< HEAD
-    margin: 0.5rem;
-=======
     background: ${(props) => props.theme.backgroundColors.buttonBg};
     color: white;
     &:hover {
@@ -91,7 +85,6 @@ export const Actions = styled.div`
       border: 0.5px solid ${(props) => props.theme.colors.border};
       color: ${(props) => props.theme.fontColors.main};
     }
->>>>>>> feature/frontend-styles
   }
 
   @media ${(props) => props.theme.size.lg} {
