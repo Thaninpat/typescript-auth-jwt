@@ -4,7 +4,6 @@ import styled from 'styled-components';
 export const Header = styled.header`
   width: 100%;
   height: 6rem;
-
   background: ${(props) => props.theme.backgroundColors.navBg};
   display: flex;
   justify-content: center;
@@ -75,7 +74,7 @@ export const Ul = styled.ul`
 export const Actions = styled.div`
   width: 18%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   button {
     background: ${(props) => props.theme.backgroundColors.buttonBg};
@@ -92,7 +91,7 @@ export const Actions = styled.div`
   }
 
   @media ${(props) => props.theme.size.md} {
-    width: 31%;
+    width: 25%;
   }
 
   @media ${(props) => props.theme.size.sm} {

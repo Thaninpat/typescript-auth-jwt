@@ -55,16 +55,23 @@ const NavBar: React.FC<Props> = () => {
             </a>
           </Logo>
         </Link>
-        <Ul>
-          <Link href='/'>
-            <a className={router.pathname === '/' ? 'active' : ''}>Home</a>
-          </Link>
 
-          <Link href='/products'>
-            <a className={router.pathname === '/products' ? 'active' : ''}>
-              Products
-            </a>
-          </Link>
+        <Ul>
+          {!loggedInUser ? (
+            ''
+          ) : (
+            <>
+              <Link href='/'>
+                <a className={router.pathname === '/' ? 'active' : ''}>Home</a>
+              </Link>
+
+              <Link href='/products'>
+                <a className={router.pathname === '/products' ? 'active' : ''}>
+                  Products
+                </a>
+              </Link>
+            </>
+          )}
 
           {loggedInUser && (
             <Link href='/dashboard'>
