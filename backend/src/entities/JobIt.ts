@@ -1,9 +1,9 @@
-import { getModelForClass, prop } from '@typegoose/typegoose';
+import { getModelForClass, prop, Ref } from '@typegoose/typegoose';
 
 import { ObjectType, Field, ID } from 'type-graphql';
 import { User } from './User';
 
-@ObjectType({ description: 'Job IT Model' })
+@ObjectType({ description: 'Job IT Model 2' })
 export class JobIt {
   @Field(() => ID)
   id: string;
@@ -25,12 +25,11 @@ export class JobIt {
   createdAt: Date;
 
   @Field()
-  @prop({ required: true, ref: User })
-  usernameId: string;
+  @prop({ required: true })
+  usersId: string;
 
-  @Field()
-  @prop({ required: true, trim: true })
-  username: string;
+  // @Field()
+  // @prop({ ref: 'User' })
+  // public usersId?: Ref<User>[];
 }
-
 export const JobItModel = getModelForClass(JobIt);
